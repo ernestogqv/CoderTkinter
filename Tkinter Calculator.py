@@ -1,6 +1,9 @@
 import tkinter
 import math
 
+input_letters = [" ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+code = ["h", "d", "o", "m", "c", "w", "z", "a"," ", "l", "s", "f", "q", "e", "g", "b", "n", "i", "k", "v", "r", "j", "u", "p", "t", "y", "x"]
+
 #This is the home screen
 def feedBack():
         username = entry.get()
@@ -53,10 +56,19 @@ home.mainloop()
 
 #Coder
 def coder():
-    user_input=coderEntry.get()
-    if user_input.isalpha():
+    #***used lower() so that everything is in lowercase
+    user_input=(coderEntry.get()).lower()
+    final_result = ""
+    try:
+        user_input_l = list(user_input)
+        for i in user_input_l:
+            for i2 in range(0, 26):
+                if i == input_letters[i2]:
+                    final_result += code[i2]
+                    break
+        print(final_result)
         return
-    else:
+    except:
         return
 
 
